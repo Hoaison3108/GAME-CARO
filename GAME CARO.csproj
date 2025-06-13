@@ -32,6 +32,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <Win32Resource>
+    </Win32Resource>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>KHOÁNG SẢN RẠNG ĐÔNG.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -46,6 +53,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChessBoardManager.cs" />
+    <Compile Include="Cons.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +74,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -78,6 +88,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Oxygen-Icons.org-Oxygen-Actions-games-config-board.256.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png-transparent-o-ring-gasket-symbol-alphabet-letter-symbol-miscellaneous-typeface-sign.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngtree-the-o-symbol-has-a-black-outline-and-white-background-vector-png-image_7059301.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\so-tai-caro%281%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="KHOÁNG SẢN RẠNG ĐÔNG.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -12,9 +12,17 @@ namespace GAME_CARO
 {
     public partial class Form1 : Form
     {
+        #region properties
+        ChessBoardManager chessBoard;
+        #endregion
         public Form1()
         {
             InitializeComponent();
+            chessBoard = new ChessBoardManager(PnlChessBoard);
+
+            chessBoard.DrawChessBoard();
         }
+
+       
     }
 }
