@@ -73,9 +73,7 @@ namespace GAME_CARO
                 new Player("Player 1", Image.FromFile(Application.StartupPath + "\\Resources\\images.png")),
                 new Player("Player 2", Image.FromFile(Application.StartupPath + "\\Resources\\pngtree-the-o-symbol-has-a-black-outline-and-white-background-vector-png-image_7059301.png"))
             };
-           this.CurrentPlayer = 0; // Bắt đầu với người chơi đầu tiên
-
-            ChangePlayer(); // Cập nhật tên và hình ảnh của người chơi đầu tiên
+        
         }
 
         #endregion
@@ -84,6 +82,11 @@ namespace GAME_CARO
         public void DrawChessBoard()
         {
             ChessBoard.Enabled = true; // Bật bảng cờ để người chơi có thể tương tác
+            ChessBoard.Controls.Clear(); // Xóa tất cả các điều khiển hiện có trên bảng cờ
+
+            this.CurrentPlayer = 0; // Bắt đầu với người chơi đầu tiên
+
+            ChangePlayer(); // Cập nhật tên và hình ảnh của người chơi đầu tiên
 
             matrix = new List<List<Button>>(); // Khởi tạo ma trận chứa các nút
 
@@ -177,7 +180,7 @@ namespace GAME_CARO
             Point point = getChessPoint(btn); // Lấy tọa độ của nút
 
             int countLeft = 0; // Đếm số ô liên tiếp bên trái
-            for (int i = point.X; i >= 0; i--)
+            for (int i = point.Y; i >= 0; i--)
             {
                 if (matrix[point.Y][i].BackgroundImage == btn.BackgroundImage) // Kiểm tra ô bên trái có cùng hình ảnh không
                 {
@@ -213,7 +216,7 @@ namespace GAME_CARO
             {
                 if (matrix[i][point.X].BackgroundImage == btn.BackgroundImage) // Kiểm tra ô bên trái có cùng hình ảnh không
                 {
-                    countTop++; // Tăng số lượng ô liên tiếp bên trái
+                    countTop++; 
                 }
                 else
                 {
@@ -226,7 +229,7 @@ namespace GAME_CARO
             {
                 if (matrix[i][point.X].BackgroundImage == btn.BackgroundImage) // Kiểm tra ô bên trái có cùng hình ảnh không
                 {
-                    countBottom++; // Tăng số lượng ô liên tiếp bên trái
+                    countBottom++; 
                 }
                 else
                 {
@@ -249,7 +252,7 @@ namespace GAME_CARO
 
                 if (matrix[point.Y - i][point.X - i].BackgroundImage == btn.BackgroundImage) // Kiểm tra ô bên trái có cùng hình ảnh không
                 {
-                    countTop++; // Tăng số lượng ô liên tiếp bên trái
+                    countTop++; 
                 }
                 else
                 {
@@ -257,7 +260,7 @@ namespace GAME_CARO
                 }
             }
 
-            int countBottom = 0; // Đếm số ô liên tiếp bên phải
+            int countBottom = 0;
             for (int i = 1; i <= Cons.CHESS_BOARD_WIDHT - point.X; i++)
             {
                 if (point.Y + i >= Cons.CHESS_BOARD_HEIGHT || point.X + i >= Cons.CHESS_BOARD_WIDHT) 
@@ -265,7 +268,7 @@ namespace GAME_CARO
                  
                 if (matrix[point.Y + i][point.X + i].BackgroundImage == btn.BackgroundImage) // Kiểm tra ô bên trái có cùng hình ảnh không
                 {
-                    countBottom++; // Tăng số lượng ô liên tiếp bên trái
+                    countBottom++; 
                 }
                 else
                 {
@@ -288,7 +291,7 @@ namespace GAME_CARO
 
                 if (matrix[point.Y - i][point.X + i].BackgroundImage == btn.BackgroundImage) // Kiểm tra ô bên trái có cùng hình ảnh không
                 {
-                    countTop++; // Tăng số lượng ô liên tiếp bên trái
+                    countTop++; 
                 }
                 else
                 {

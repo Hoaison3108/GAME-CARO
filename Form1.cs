@@ -32,8 +32,11 @@ namespace GAME_CARO
             chessBoard.DrawChessBoard();
 
             TmCoolDown.Start();
+
+            NewGame();
         }
 
+        #region methods
         void EndGame()
         {
             TmCoolDown.Stop();
@@ -41,24 +44,67 @@ namespace GAME_CARO
             MessageBox.Show( "Game Over");
         }
 
-        private void ChessBoard_PlayerMarked(object sender, EventArgs e)
+        void NewGame()
+        {
+            PrgCoolDown.Value = 0;
+            TmCoolDown.Stop();
+            chessBoard.DrawChessBoard();
+        }
+
+        void Undo()
+        {
+
+        }
+
+        void Quit()
+        {
+            Application.Exit();
+        }
+
+        void ChessBoard_PlayerMarked(object sender, EventArgs e)
         {
             TmCoolDown.Start();
             PrgCoolDown.Value = 0;
         }
 
-        private void ChessBoard_EndedGame(object sender, EventArgs e)
+        void ChessBoard_EndedGame(object sender, EventArgs e)
         {
             EndGame();
         }
+
         private void TmCoolDown_Tick(object sender, EventArgs e)
         {
-            PrgCoolDown.PerformStep();
+            PrgCoolDown.PerformStep(); 
 
             if (PrgCoolDown.Value >= PrgCoolDown.Maximum)
             { 
                 EndGame();
             }
         }
+
+        private void mnuMenuNew_Click(object sender, EventArgs e)
+        {
+            NewGame();
+        }
+
+        private void mnuMenuUndo_Click(object sender, EventArgs e)
+        {
+            Undo();
+        }
+
+        private void mnuMenuQuit_Click(object sender, EventArgs e)
+        {
+            Quit();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to quit?", "Confirm Quit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.No)
+                return;
+            Application.Exit();
+
+            e.Cancel = true; // Prevent the form from closing immediately
+        }
+        #endregion
     }
 }

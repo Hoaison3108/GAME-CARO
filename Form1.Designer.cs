@@ -41,16 +41,24 @@
             this.PrgCoolDown = new System.Windows.Forms.ProgressBar();
             this.TxtPlayerName = new System.Windows.Forms.TextBox();
             this.TmCoolDown = new System.Windows.Forms.Timer(this.components);
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.mnuMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuMenuNew = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuMenuUndo = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuMenuQuit = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicAvatar)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicMark)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // PnlChessBoard
             // 
             this.PnlChessBoard.BackColor = System.Drawing.SystemColors.Control;
-            this.PnlChessBoard.Location = new System.Drawing.Point(-1, 0);
+            this.PnlChessBoard.Location = new System.Drawing.Point(3, 27);
             this.PnlChessBoard.Name = "PnlChessBoard";
             this.PnlChessBoard.Size = new System.Drawing.Size(781, 662);
             this.PnlChessBoard.TabIndex = 0;
@@ -86,9 +94,9 @@
             this.panel3.Controls.Add(this.PrgCoolDown);
             this.panel3.Controls.Add(this.TxtPlayerName);
             this.panel3.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel3.Location = new System.Drawing.Point(787, 299);
+            this.panel3.Location = new System.Drawing.Point(789, 299);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(372, 363);
+            this.panel3.Size = new System.Drawing.Size(372, 390);
             this.panel3.TabIndex = 2;
             // 
             // label1
@@ -147,23 +155,87 @@
             // 
             this.TmCoolDown.Tick += new System.EventHandler(this.TmCoolDown_Tick);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuMenu,
+            this.undoToolStripMenuItem,
+            this.exitToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1160, 24);
+            this.menuStrip1.TabIndex = 3;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // mnuMenu
+            // 
+            this.mnuMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuMenuNew,
+            this.mnuMenuUndo,
+            this.mnuMenuQuit});
+            this.mnuMenu.Name = "mnuMenu";
+            this.mnuMenu.Size = new System.Drawing.Size(50, 20);
+            this.mnuMenu.Text = "Menu";
+            // 
+            // undoToolStripMenuItem
+            // 
+            this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.undoToolStripMenuItem.Text = "Undo";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.exitToolStripMenuItem.Text = "Exit";
+            // 
+            // mnuMenuNew
+            // 
+            this.mnuMenuNew.Name = "mnuMenuNew";
+            this.mnuMenuNew.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.mnuMenuNew.Size = new System.Drawing.Size(180, 22);
+            this.mnuMenuNew.Text = "New";
+            this.mnuMenuNew.Click += new System.EventHandler(this.mnuMenuNew_Click);
+            // 
+            // mnuMenuUndo
+            // 
+            this.mnuMenuUndo.Name = "mnuMenuUndo";
+            this.mnuMenuUndo.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
+            this.mnuMenuUndo.Size = new System.Drawing.Size(180, 22);
+            this.mnuMenuUndo.Text = "Undo";
+            this.mnuMenuUndo.Click += new System.EventHandler(this.mnuMenuUndo_Click);
+            // 
+            // mnuMenuQuit
+            // 
+            this.mnuMenuQuit.Name = "mnuMenuQuit";
+            this.mnuMenuQuit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
+            this.mnuMenuQuit.Size = new System.Drawing.Size(180, 22);
+            this.mnuMenuQuit.Text = "Quit";
+            this.mnuMenuQuit.Click += new System.EventHandler(this.mnuMenuQuit_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1160, 663);
+            this.ClientSize = new System.Drawing.Size(1160, 696);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.PnlChessBoard);
+            this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Game Caro";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PicAvatar)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicMark)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -180,6 +252,13 @@
         private System.Windows.Forms.Button BtnLan;
         private System.Windows.Forms.TextBox txtIp;
         private System.Windows.Forms.Timer TmCoolDown;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem mnuMenu;
+        private System.Windows.Forms.ToolStripMenuItem mnuMenuNew;
+        private System.Windows.Forms.ToolStripMenuItem mnuMenuUndo;
+        private System.Windows.Forms.ToolStripMenuItem mnuMenuQuit;
+        private System.Windows.Forms.ToolStripMenuItem undoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
     }
 }
 
