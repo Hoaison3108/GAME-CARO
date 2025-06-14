@@ -46,7 +46,19 @@ namespace GAME_CARO
             set { matrix = value; }
         }
 
+        private event EventHandler playerMarked; // Sự kiện khi người chơi đánh dấu ô
+        public event EventHandler PlayerMarked
+        {
+            add { playerMarked += value; }
+            remove { playerMarked -= value; }
+        }
 
+        private EventHandler endedGame; // Sự kiện khi trò chơi kết thúc
+        public event EventHandler EndedGame
+        {
+            add { endedGame += value; }
+            remove { endedGame -= value; }
+        }
 
         #endregion
 
@@ -71,6 +83,8 @@ namespace GAME_CARO
         #region methods
         public void DrawChessBoard()
         {
+            ChessBoard.Enabled = true; // Bật bảng cờ để người chơi có thể tương tác
+
             matrix = new List<List<Button>>(); // Khởi tạo ma trận chứa các nút
 
             Button oldButton = new Button()
@@ -119,16 +133,23 @@ namespace GAME_CARO
             Mark(btn); // Đánh dấu ô với hình ảnh của người chơi hiện tại
 
             ChangePlayer(); // Chuyển sang người chơi tiếp theo
-            
+
+            if (playerMarked != null)
+            {
+                playerMarked(this, new EventArgs()); // Gọi sự kiện khi người chơi đánh dấu ô
+            }
+
             if (isEndGame(btn)) // Kiểm tra điều kiện kết thúc trò chơi
             {
                 endGame(); // Gọi hàm kết thúc trò chơi
-            }
+            }  
         }
 
-        private void endGame()
+       public void endGame()
         {
-            MessageBox.Show($"{Player[CurrentPlayer].Name} wins!", "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (endedGame != null)
+            
+                endedGame(this, new EventArgs()); // Gọi sự kiện kết thúc trò chơi
         }
 
         private bool isEndGame(Button btn)

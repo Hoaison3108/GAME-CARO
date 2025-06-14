@@ -15,5 +15,9 @@ namespace GAME_CARO
         // Size of the chess board 
         public static int CHESS_BOARD_WIDHT = 27; 
         public static int CHESS_BOARD_HEIGHT = 22;
+
+        public static int COOL_DOWN_STEP = 100;
+        public static int COOL_DOWN_TIME = 10000;
+        public static int COOL_DOWN_INTERVAL = 100;
     }
 }
