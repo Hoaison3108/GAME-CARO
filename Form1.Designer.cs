@@ -118,10 +118,11 @@
             // 
             // PicMark
             // 
-            this.PicMark.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.PicMark.BackColor = System.Drawing.SystemColors.Control;
             this.PicMark.Location = new System.Drawing.Point(198, 12);
             this.PicMark.Name = "PicMark";
             this.PicMark.Size = new System.Drawing.Size(163, 105);
+            this.PicMark.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PicMark.TabIndex = 2;
             this.PicMark.TabStop = false;
             // 

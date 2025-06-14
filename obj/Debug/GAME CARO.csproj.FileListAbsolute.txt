@@ -9,3 +9,14 @@ D:\C#\Project_Caro\GAME CARO\obj\Debug\GAME CARO.csproj.CoreCompileInputs.cache
 D:\C#\Project_Caro\GAME CARO\obj\Debug\GAME CARO.exe
 D:\C#\Project_Caro\GAME CARO\obj\Debug\GAME CARO.pdb
 D:\C#\Project_Caro\GAME CARO\obj\Debug\GAME CARO.exe.config
+D:\C#\Project_Caro\GAME-CARO\bin\Debug\GAME CARO.exe.config
+D:\C#\Project_Caro\GAME-CARO\bin\Debug\GAME CARO.exe
+D:\C#\Project_Caro\GAME-CARO\bin\Debug\GAME CARO.pdb
+D:\C#\Project_Caro\GAME-CARO\obj\Debug\GAME CARO.csproj.AssemblyReference.cache
+D:\C#\Project_Caro\GAME-CARO\obj\Debug\GAME CARO.exe.config
+D:\C#\Project_Caro\GAME-CARO\obj\Debug\GAME_CARO.Form1.resources
+D:\C#\Project_Caro\GAME-CARO\obj\Debug\GAME_CARO.Properties.Resources.resources
+D:\C#\Project_Caro\GAME-CARO\obj\Debug\GAME CARO.csproj.GenerateResource.cache
+D:\C#\Project_Caro\GAME-CARO\obj\Debug\GAME CARO.csproj.CoreCompileInputs.cache
+D:\C#\Project_Caro\GAME-CARO\obj\Debug\GAME CARO.exe
+D:\C#\Project_Caro\GAME-CARO\obj\Debug\GAME CARO.pdb
