@@ -38,6 +38,16 @@ namespace GAME_CARO
             set { playerMark = value; }
         }
 
+        private List<List<Button>> matrix;
+
+        public List<List<Button>> Matrix
+        {
+            get { return matrix; }
+            set { matrix = value; }
+        }
+
+
+
         #endregion
 
         #region Initialize Constructor
@@ -61,6 +71,8 @@ namespace GAME_CARO
         #region methods
         public void DrawChessBoard()
         {
+            matrix = new List<List<Button>>(); // Khởi tạo ma trận chứa các nút
+
             Button oldButton = new Button()
             {
                 Width = 0,
@@ -69,6 +81,8 @@ namespace GAME_CARO
 
             for (int i = 0; i < Cons.CHESS_BOARD_HEIGHT; i++)
             {
+                matrix.Add(new List<Button>()); // Thêm một hàng mới vào ma trận
+
                 for (int j = 0; j < Cons.CHESS_BOARD_WIDHT; j++)
                 {
                     Button btn = new Button()
@@ -76,12 +90,15 @@ namespace GAME_CARO
                         Width = Cons.CHESS_WIDTH,
                         Height = Cons.CHESS_HEIGHT,
                         Location = new Point(oldButton.Location.X + oldButton.Width, oldButton.Location.Y),
-                        BackgroundImageLayout = ImageLayout.Stretch
+                        BackgroundImageLayout = ImageLayout.Stretch,
+                        Tag = i.ToString() // Lưu chỉ số hàng
                     };
 
                     btn.Click += btn_Click;
 
                     ChessBoard.Controls.Add(btn);
+
+                    matrix[i].Add(btn); // Thêm nút vào hàng hiện tại của ma trận
 
                     oldButton = btn;
                 }
@@ -102,7 +119,186 @@ namespace GAME_CARO
             Mark(btn); // Đánh dấu ô với hình ảnh của người chơi hiện tại
 
             ChangePlayer(); // Chuyển sang người chơi tiếp theo
+            
+            if (isEndGame(btn)) // Kiểm tra điều kiện kết thúc trò chơi
+            {
+                endGame(); // Gọi hàm kết thúc trò chơi
+            }
         }
+
+        private void endGame()
+        {
+            MessageBox.Show($"{Player[CurrentPlayer].Name} wins!", "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private bool isEndGame(Button btn)
+        {
+
+            return isEndHorizontal(btn) || isEndVertical(btn) || isEndDiagonal(btn) || isEndAntiDiagonal(btn);
+        }
+
+        /// <summary>
+        ///     kiểm tra end game ở hàng dọc, ngang và chéo chính, chéo phụ
+        
+        private Point getChessPoint(Button btn)
+        {
+
+            int vertical = Convert.ToInt32(btn.Tag); // Lấy chỉ số hàng từ Tag của nút
+            int horizontal = matrix[vertical].IndexOf(btn); // Lấy chỉ số cột của nút trong hàng
+
+            Point point = new Point(horizontal, vertical);
+
+            return point;
+        }
+
+        private bool isEndHorizontal(Button btn)
+        {
+            Point point = getChessPoint(btn); // Lấy tọa độ của nút
+
+            int countLeft = 0; // Đếm số ô liên tiếp bên trái
+            for (int i = point.X; i >= 0; i--)
+            {
+                if (matrix[point.Y][i].BackgroundImage == btn.BackgroundImage) // Kiểm tra ô bên trái có cùng hình ảnh không
+                {
+                    countLeft++; // Tăng số lượng ô liên tiếp bên trái
+                }
+                else
+                {
+                    break; // Dừng nếu gặp ô khác hình ảnh
+                }
+            }
+
+            int countRight = 0; // Đếm số ô liên tiếp bên phải
+            for (int i = point.X + 1; i < Cons.CHESS_BOARD_WIDHT; i++)
+            {
+                if (matrix[point.Y][i].BackgroundImage == btn.BackgroundImage) // Kiểm tra ô bên trái có cùng hình ảnh không
+                {
+                    countRight++; // Tăng số lượng ô liên tiếp bên trái
+                }
+                else
+                {
+                    break; // Dừng nếu gặp ô khác hình ảnh
+                }
+            }
+
+            return countLeft + countRight == 5; 
+        }
+        private bool isEndVertical(Button btn)
+        {
+            Point point = getChessPoint(btn); // Lấy tọa độ của nút
+
+            int countTop = 0; // Đếm số ô liên tiếp bên trái
+            for (int i = point.Y; i >= 0; i--)
+            {
+                if (matrix[i][point.X].BackgroundImage == btn.BackgroundImage) // Kiểm tra ô bên trái có cùng hình ảnh không
+                {
+                    countTop++; // Tăng số lượng ô liên tiếp bên trái
+                }
+                else
+                {
+                    break; // Dừng nếu gặp ô khác hình ảnh
+                }
+            }
+
+            int countBottom = 0; // Đếm số ô liên tiếp bên phải
+            for (int i = point.Y + 1; i < Cons.CHESS_BOARD_HEIGHT; i++)
+            {
+                if (matrix[i][point.X].BackgroundImage == btn.BackgroundImage) // Kiểm tra ô bên trái có cùng hình ảnh không
+                {
+                    countBottom++; // Tăng số lượng ô liên tiếp bên trái
+                }
+                else
+                {
+                    break; // Dừng nếu gặp ô khác hình ảnh
+                }
+            }
+
+            return countTop + countBottom == 5;
+        }
+
+          private bool isEndDiagonal(Button btn)
+        {
+            Point point = getChessPoint(btn); // Lấy tọa độ của nút
+
+            int countTop = 0; // Đếm số ô liên tiếp bên trái
+            for (int i = 0; i <= point.X; i++)
+            {
+                if (point.X - i < 0 || point.Y - i < 0) 
+                    break; // Kiểm tra giới hạn mảng
+
+                if (matrix[point.Y - i][point.X - i].BackgroundImage == btn.BackgroundImage) // Kiểm tra ô bên trái có cùng hình ảnh không
+                {
+                    countTop++; // Tăng số lượng ô liên tiếp bên trái
+                }
+                else
+                {
+                    break; // Dừng nếu gặp ô khác hình ảnh
+                }
+            }
+
+            int countBottom = 0; // Đếm số ô liên tiếp bên phải
+            for (int i = 1; i <= Cons.CHESS_BOARD_WIDHT - point.X; i++)
+            {
+                if (point.Y + i >= Cons.CHESS_BOARD_HEIGHT || point.X + i >= Cons.CHESS_BOARD_WIDHT) 
+                    break; // Kiểm tra giới hạn mảng
+                 
+                if (matrix[point.Y + i][point.X + i].BackgroundImage == btn.BackgroundImage) // Kiểm tra ô bên trái có cùng hình ảnh không
+                {
+                    countBottom++; // Tăng số lượng ô liên tiếp bên trái
+                }
+                else
+                {
+                    break; // Dừng nếu gặp ô khác hình ảnh
+                }
+            }
+
+            return countTop + countBottom == 5;
+        }
+
+        private bool isEndAntiDiagonal(Button btn)
+        {
+            Point point = getChessPoint(btn); 
+
+            int countTop = 0; 
+            for (int i = 0; i <= point.X; i++)
+            {
+                if (point.X +  i > Cons.CHESS_BOARD_WIDHT || point.Y - i < 0)
+                    break; // Kiểm tra giới hạn mảng
+
+                if (matrix[point.Y - i][point.X + i].BackgroundImage == btn.BackgroundImage) // Kiểm tra ô bên trái có cùng hình ảnh không
+                {
+                    countTop++; // Tăng số lượng ô liên tiếp bên trái
+                }
+                else
+                {
+                    break; // Dừng nếu gặp ô khác hình ảnh
+                }
+            }
+
+            int countBottom = 0; 
+            for (int i = 1; i <= Cons.CHESS_BOARD_WIDHT - point.X; i++)
+            {
+                if (point.Y + i >= Cons.CHESS_BOARD_HEIGHT || point.X - i < 0)
+                    break; // Kiểm tra giới hạn mảng
+
+                if (matrix[point.Y + i][point.X - i].BackgroundImage == btn.BackgroundImage) // Kiểm tra ô bên trái có cùng hình ảnh không
+                {
+                    countBottom++;
+                }
+                else
+                {
+                    break; // Dừng nếu gặp ô khác hình ảnh
+                }
+            }
+
+            return countTop + countBottom == 5;
+        }
+
+        /// </summary>
+        /// <param name="btn"></param>
+
+
+
 
         private void Mark(Button btn)
         {
