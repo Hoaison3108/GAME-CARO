@@ -60,6 +60,12 @@ namespace GAME_CARO
             remove { endedGame -= value; }
         }
 
+        private Stack<PlayInfo> playTimeLine;
+        public Stack<PlayInfo> PlayTimeLine
+        {
+            get { return playTimeLine; }
+            set { playTimeLine = value; }
+        }
         #endregion
 
         #region Initialize Constructor
@@ -74,6 +80,7 @@ namespace GAME_CARO
                 new Player("Player 2", Image.FromFile(Application.StartupPath + "\\Resources\\pngtree-the-o-symbol-has-a-black-outline-and-white-background-vector-png-image_7059301.png"))
             };
         
+            playTimeLine = new Stack<PlayInfo>(); // Khởi tạo ngăn xếp để lưu trữ các nước đi
         }
 
         #endregion
@@ -83,6 +90,8 @@ namespace GAME_CARO
         {
             ChessBoard.Enabled = true; // Bật bảng cờ để người chơi có thể tương tác
             ChessBoard.Controls.Clear(); // Xóa tất cả các điều khiển hiện có trên bảng cờ
+
+            playTimeLine = new Stack<PlayInfo>(); // Khởi tạo lại ngăn xếp để bắt đầu trò chơi mới
 
             this.CurrentPlayer = 0; // Bắt đầu với người chơi đầu tiên
 
@@ -135,6 +144,10 @@ namespace GAME_CARO
             
             Mark(btn); // Đánh dấu ô với hình ảnh của người chơi hiện tại
 
+            playTimeLine.Push(new PlayInfo(getChessPoint(btn), CurrentPlayer)); // Lưu nước đi vào ngăn xếp
+
+            CurrentPlayer = CurrentPlayer == 1 ? 0 : 1; // Chuyển sang người chơi tiếp theo
+
             ChangePlayer(); // Chuyển sang người chơi tiếp theo
 
             if (playerMarked != null)
@@ -154,6 +167,32 @@ namespace GAME_CARO
             
                 endedGame(this, new EventArgs()); // Gọi sự kiện kết thúc trò chơi
         }
+
+       public bool undo()
+        {
+            if (playTimeLine.Count <=  0) // Kiểm tra xem có nước đi nào để hoàn tác không
+                return false; // Không thể hoàn tác
+            
+            PlayInfo oldPoint = playTimeLine.Pop(); // Lấy nước đi cuối cùng từ ngăn xếp
+            Button btn = matrix[oldPoint.Point.Y][oldPoint.Point.X]; // Lấy nút tương ứng với nước đi đó
+           
+            btn.BackgroundImage = null; // Xóa hình ảnh của nút để hoàn tác nước đi
+            
+            if (playTimeLine.Count <= 0)
+            {
+                CurrentPlayer = 0; // Nếu không còn nước đi nào, đặt người chơi về người chơi đầu tiên
+            }    
+            else
+            {
+                oldPoint = playTimeLine.Peek(); // Lấy nước đi cuối cùng trong ngăn xếp
+                CurrentPlayer = playTimeLine.Peek().CurrentPlayer == 1 ? 0 : 1; // Chuyển về người chơi trước đó
+            }    
+
+            ChangePlayer(); // Cập nhật tên và hình ảnh của người chơi hiện tại
+
+            return true;
+        }
+
 
         private bool isEndGame(Button btn)
         {
@@ -321,14 +360,9 @@ namespace GAME_CARO
         /// </summary>
         /// <param name="btn"></param>
 
-
-
-
         private void Mark(Button btn)
         {
             btn.BackgroundImage = player[CurrentPlayer].Mask; // Gán hình ảnh của người chơi hiện tại
-
-            CurrentPlayer = CurrentPlayer == 1 ? 0 : 1; // Chuyển sang người chơi tiếp theo
         }
 
         private void ChangePlayer()

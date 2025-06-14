@@ -41,6 +41,7 @@ namespace GAME_CARO
         {
             TmCoolDown.Stop();
             PnlChessBoard.Enabled = false;
+            mnuMenuUndo.Enabled = false;
             MessageBox.Show( "Game Over");
         }
 
@@ -48,12 +49,13 @@ namespace GAME_CARO
         {
             PrgCoolDown.Value = 0;
             TmCoolDown.Stop();
+            mnuMenuUndo.Enabled = true;
             chessBoard.DrawChessBoard();
         }
 
         void Undo()
         {
-
+            chessBoard.undo();
         }
 
         void Quit()

@@ -1,22 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\C#\\Project_Caro\\GAME-CARO\\",
+  "WorkspaceRootPath": "D:\\GAME-CARO\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{85339E0E-D814-48AF-AF23-0A53D2345C08}|GAME CARO.csproj|d:\\c#\\project_caro\\game-caro\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{85339E0E-D814-48AF-AF23-0A53D2345C08}|GAME CARO.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{85339E0E-D814-48AF-AF23-0A53D2345C08}|GAME CARO.csproj|D:\\GAME-CARO\\cons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{85339E0E-D814-48AF-AF23-0A53D2345C08}|GAME CARO.csproj|solutionrelative:cons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{85339E0E-D814-48AF-AF23-0A53D2345C08}|GAME CARO.csproj|D:\\C#\\Project_Caro\\GAME-CARO\\chessboardmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{85339E0E-D814-48AF-AF23-0A53D2345C08}|GAME CARO.csproj|solutionrelative:chessboardmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{85339E0E-D814-48AF-AF23-0A53D2345C08}|GAME CARO.csproj|d:\\game-caro\\playinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{85339E0E-D814-48AF-AF23-0A53D2345C08}|GAME CARO.csproj|solutionrelative:playinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{85339E0E-D814-48AF-AF23-0A53D2345C08}|GAME CARO.csproj|D:\\C#\\Project_Caro\\GAME-CARO\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{85339E0E-D814-48AF-AF23-0A53D2345C08}|GAME CARO.csproj|D:\\GAME-CARO\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{85339E0E-D814-48AF-AF23-0A53D2345C08}|GAME CARO.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{85339E0E-D814-48AF-AF23-0A53D2345C08}|GAME CARO.csproj|D:\\C#\\Project_Caro\\GAME-CARO\\cons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{85339E0E-D814-48AF-AF23-0A53D2345C08}|GAME CARO.csproj|solutionrelative:cons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{85339E0E-D814-48AF-AF23-0A53D2345C08}|GAME CARO.csproj|D:\\GAME-CARO\\chessboardmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{85339E0E-D814-48AF-AF23-0A53D2345C08}|GAME CARO.csproj|solutionrelative:chessboardmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{85339E0E-D814-48AF-AF23-0A53D2345C08}|GAME CARO.csproj|d:\\game-caro\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{85339E0E-D814-48AF-AF23-0A53D2345C08}|GAME CARO.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,17 +30,17 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "Cons.cs",
-              "DocumentMoniker": "D:\\C#\\Project_Caro\\GAME-CARO\\Cons.cs",
+              "DocumentMoniker": "D:\\GAME-CARO\\Cons.cs",
               "RelativeDocumentMoniker": "Cons.cs",
-              "ToolTip": "D:\\C#\\Project_Caro\\GAME-CARO\\Cons.cs",
+              "ToolTip": "D:\\GAME-CARO\\Cons.cs",
               "RelativeToolTip": "Cons.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-14T03:06:47.103Z",
               "IsPinned": true,
@@ -45,12 +49,25 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "PlayInfo.cs",
+              "DocumentMoniker": "D:\\GAME-CARO\\PlayInfo.cs",
+              "RelativeDocumentMoniker": "PlayInfo.cs",
+              "ToolTip": "D:\\GAME-CARO\\PlayInfo.cs",
+              "RelativeToolTip": "PlayInfo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-14T14:19:56.555Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "ChessBoardManager.cs",
-              "DocumentMoniker": "D:\\C#\\Project_Caro\\GAME-CARO\\ChessBoardManager.cs",
+              "DocumentMoniker": "D:\\GAME-CARO\\ChessBoardManager.cs",
               "RelativeDocumentMoniker": "ChessBoardManager.cs",
-              "ToolTip": "D:\\C#\\Project_Caro\\GAME-CARO\\ChessBoardManager.cs",
+              "ToolTip": "D:\\GAME-CARO\\ChessBoardManager.cs",
               "RelativeToolTip": "ChessBoardManager.cs",
-              "ViewState": "AgIAADoAAAAAAAAAAAAgwFEAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAuwGcAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-14T03:19:08.536Z",
               "EditorCaption": ""
@@ -59,22 +76,22 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Form1.cs",
-              "DocumentMoniker": "D:\\C#\\Project_Caro\\GAME-CARO\\Form1.cs",
+              "DocumentMoniker": "D:\\GAME-CARO\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "D:\\C#\\Project_Caro\\GAME-CARO\\Form1.cs",
+              "ToolTip": "D:\\GAME-CARO\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAgwDMAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-14T03:05:49.795Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "D:\\C#\\Project_Caro\\GAME-CARO\\Form1.cs",
+              "DocumentMoniker": "D:\\GAME-CARO\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "D:\\C#\\Project_Caro\\GAME-CARO\\Form1.cs [Design]",
+              "ToolTip": "D:\\GAME-CARO\\Form1.cs [Design]",
               "RelativeToolTip": "Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-14T02:51:31.537Z",
